@@ -123,7 +123,7 @@ a {
   overflow: hidden;
 }
 
-.hero-media,
+.hero-video-frame,
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -131,11 +131,21 @@ a {
   height: 100%;
 }
 
+.hero-video-frame {
+  overflow: hidden;
+}
+
 .hero-media {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   filter: contrast(1.08) saturate(1.14) brightness(0.94);
   transform: scale(1.015);
   transform-origin: center;
+}
+
+.hero-video-meta {
+  display: none;
 }
 
 .hero-overlay {
@@ -234,20 +244,73 @@ h3 {
     min-height: 88vh;
     align-items: center;
     background:
-      linear-gradient(90deg, rgba(8, 11, 13, 0.92), rgba(8, 11, 13, 0.72) 46%, rgba(8, 11, 13, 0.28)),
+      radial-gradient(circle at 78% 45%, rgba(166, 215, 25, 0.16), rgba(166, 215, 25, 0) 26%),
+      linear-gradient(90deg, rgba(8, 11, 13, 0.94), rgba(8, 11, 13, 0.76) 50%, rgba(8, 11, 13, 0.34)),
       url("public/WhatsApp Image 2026-07-04 at 22.17.41.jpeg") center / cover;
   }
 
-  .hero-media {
-    inset: auto clamp(34px, 5vw, 78px) 50% auto;
+  .hero-video-frame {
+    inset: 108px clamp(34px, 5vw, 78px) 100px auto;
     z-index: 2;
-    width: min(35vw, 430px);
-    height: min(72vh, 640px);
-    object-fit: contain;
+    width: min(39vw, 510px);
+    height: auto;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04)),
+      rgba(8, 11, 13, 0.54);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(18px);
+  }
+
+  .hero-video-frame::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: 8px;
+    border-top: 4px solid var(--lime);
+    opacity: 0.9;
+  }
+
+  .hero-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
     background: #080b0d;
-    box-shadow: var(--shadow);
-    transform: translateY(50%);
+    transform: none;
+  }
+
+  .hero-video-meta {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--lime);
+    border-radius: 6px;
+    background: rgba(8, 11, 13, 0.76);
+    backdrop-filter: blur(12px);
+  }
+
+  .hero-video-meta span {
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .hero-video-meta strong {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.45rem;
+    text-transform: uppercase;
   }
 
   .hero-overlay {
