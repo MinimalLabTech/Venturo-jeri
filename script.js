@@ -9,8 +9,8 @@ const notesInput = document.querySelector("#notes");
 const lightbox = document.querySelector("#lightbox");
 const lightboxImage = lightbox.querySelector("img");
 const whatsappNumber = "";
-const supabaseUrl = "";
-const supabaseAnonKey = "";
+const supabaseUrl = "https://ratlrugaxnfsxigmuicm.supabase.co";
+const supabaseAnonKey = "sb_publishable_k-duGcFQurxDkImewOn_Cg_-_cLb5uv";
 
 function isSupabaseConfigured() {
   return Boolean(supabaseUrl && supabaseAnonKey);
