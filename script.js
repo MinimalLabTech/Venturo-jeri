@@ -89,7 +89,18 @@ bookingForm.addEventListener("submit", async (event) => {
   }
 });
 
-document.querySelectorAll(".gallery-item").forEach((item) => {
+document.querySelectorAll(".route-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const route = button.dataset.route;
+    if (route) {
+      routeInput.value = route;
+    }
+    document.querySelector("#reserva").scrollIntoView({ behavior: "smooth", block: "start" });
+    dateInput.focus({ preventScroll: true });
+  });
+});
+
+document.querySelectorAll("button.gallery-item").forEach((item) => {
   item.addEventListener("click", () => {
     lightboxImage.src = item.dataset.src;
     lightboxImage.alt = item.querySelector("img").alt;
